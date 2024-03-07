@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 29 fév. 2024 à 11:34
+-- Généré le :  jeu. 07 mars 2024 à 07:27
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -36,13 +36,6 @@ CREATE TABLE IF NOT EXISTS `akdemia_company` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `akdemia_company`
---
-
-INSERT INTO `akdemia_company` (`ID`, `ACTIVITY`, `NAME`) VALUES
-(158, 'SIRIUS', 'SIRIUS');
-
 -- --------------------------------------------------------
 
 --
@@ -62,13 +55,6 @@ CREATE TABLE IF NOT EXISTS `akdemia_employee` (
   KEY `AKDEMIA_EMPLOYEE_AKDEMIA_COMPANY0_FK` (`ID_AKDEMIA_COMPANY`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `akdemia_employee`
---
-
-INSERT INTO `akdemia_employee` (`ID`, `FIRSTNAME`, `LASTNAME`, `GENDER`, `HIGHEST_DIPLOMA`, `BIRTH_DATE`, `ID_AKDEMIA_COMPANY`) VALUES
-(159, 'Aliou', 'Garga', 'M', 'LIS', NULL, 158);
-
 -- --------------------------------------------------------
 
 --
@@ -86,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_employee_souscription` (
   PRIMARY KEY (`ID`),
   KEY `AKDEMIA_EMPLOYEE_SOUSCRIPTION_AKDEMIA_INTRA_SESSION_FK` (`ID_AKDEMIA_INTRA_SESSION`),
   KEY `AKDEMIA_EMPLOYEE_SOUSCRIPTION_AKDEMIA_EMPLOYEE0_FK` (`ID_AKDEMIA_EMPLOYEE`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -152,13 +138,6 @@ CREATE TABLE IF NOT EXISTS `akdemia_manager` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `akdemia_manager`
---
-
-INSERT INTO `akdemia_manager` (`ID`, `FIRSTNAME`, `LASTNAME`, `GENDER`) VALUES
-(1, 'John', 'Doe', 'male');
-
 -- --------------------------------------------------------
 
 --
@@ -177,13 +156,6 @@ CREATE TABLE IF NOT EXISTS `akdemia_particular` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `akdemia_particular`
---
-
-INSERT INTO `akdemia_particular` (`ID`, `ACTIVITY`, `FIRSTNAME`, `LASTNAME`, `GENDER`, `HIGHEST_DIPLOMA`, `BIRTH_DATE`) VALUES
-(160, '2RD', 'Oumar', 'Farouq', 'M', 'QFCS', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -201,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_particular_souscription` (
   PRIMARY KEY (`ID`),
   KEY `AKDEMIA_PARTICULAR_SOUSCRIPTION_AKDEMIA_INTER_SESSION_FK` (`ID_AKDEMIA_INTER_SESSION`),
   KEY `AKDEMIA_PARTICULAR_SOUSCRIPTION_AKDEMIA_PARTICULAR0_FK` (`ID_AKDEMIA_PARTICULAR`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -239,16 +211,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_privilege` (
   PRIMARY KEY (`ID`),
   KEY `AKDEMIA_PRIVILEGE_AKDEMIA_USER_FK` (`ID_AKDEMIA_USER`),
   KEY `AKDEMIA_PRIVILEGE_AKDEMIA_ROLE0_FK` (`ID_AKDEMIA_ROLE`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `akdemia_privilege`
---
-
-INSERT INTO `akdemia_privilege` (`ID`, `CREATION_DATE`, `UPDATE_DATE`, `ID_AKDEMIA_USER`, `ID_AKDEMIA_ROLE`) VALUES
-(1, '2024-01-29 13:39:46', NULL, 1, 1),
-(2, '2024-01-29 14:56:02', NULL, 2, 1),
-(3, '2024-02-22 13:19:01', NULL, 157, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -265,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_requirement` (
   `CREATION_DATE` datetime DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -280,15 +243,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_role` (
   `CREATION_DATE` datetime DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `akdemia_role`
---
-
-INSERT INTO `akdemia_role` (`ID`, `ROLE_NAME`, `CREATION_DATE`, `UPDATE_DATE`) VALUES
-(1, 'admin', '2024-01-29 00:00:00', NULL),
-(2, 'string', '2024-02-22 13:17:55', '2024-02-22 13:17:28');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -314,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_session` (
   PRIMARY KEY (`ID`),
   KEY `AKDEMIA_SESSION_AKDEMIA_TRAINER_FK` (`ID_AKDEMIA_TRAINER`),
   KEY `AKDEMIA_SESSION_AKDEMIA_TRAINING0_FK` (`ID_AKDEMIA_TRAINING`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -330,15 +285,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_sub_theme` (
   `CREATION_DATE` datetime DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `akdemia_sub_theme`
---
-
-INSERT INTO `akdemia_sub_theme` (`ID`, `SUBTHEME_TITLE`, `DESCRIPTION`, `CREATION_DATE`, `UPDATE_DATE`) VALUES
-(1, 'JEE', 'Programmation d\'application d\'entreprise avec Jakarta EE', '2024-01-29 16:06:14', NULL),
-(2, 'PHP', 'Programmation web avec le père du web', '2024-01-29 16:06:57', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -370,16 +317,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_theme` (
   `CREATION_DATE` datetime DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `akdemia_theme`
---
-
-INSERT INTO `akdemia_theme` (`ID`, `THEME_TITLE`, `DESCRIPTION`, `CREATION_DATE`, `UPDATE_DATE`) VALUES
-(1, 'Programmation WEB', 'Outils & Techniques de conceptions d\'applications et sites web', '2024-01-29 16:04:59', NULL),
-(2, 'AbdouZOYIM', 'AbdouZOYIM', '2024-02-01 11:14:54', '2024-02-01 11:15:22'),
-(25, 'AbdouZoyim2', 'Comprendre Abdou Zoyim Vol 2', '2024-02-28 14:35:07', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -400,13 +338,6 @@ CREATE TABLE IF NOT EXISTS `akdemia_trainer` (
   KEY `AKDEMIA_TRAINER_AKDEMIA_VALIDATION_TEST0_FK` (`ID_AKDEMIA_VALIDATION_TEST`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `akdemia_trainer`
---
-
-INSERT INTO `akdemia_trainer` (`ID`, `ACTIVITY`, `CV_LINK`, `FIRSTNAME`, `LASTNAME`, `GENDER`, `ID_AKDEMIA_VALIDATION_TEST`) VALUES
-(4, 'RAS-Service', NULL, 'Oumar', 'Farouq', 'M', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -425,7 +356,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_training` (
   `ID_AKDEMIA_REQUIREMENT` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `AKDEMIA_TRAINING_AKDEMIA_REQUIREMENT_FK` (`ID_AKDEMIA_REQUIREMENT`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -445,21 +376,7 @@ CREATE TABLE IF NOT EXISTS `akdemia_user` (
   `CREATION_DATE` datetime DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `akdemia_user`
---
-
-INSERT INTO `akdemia_user` (`ID`, `PHONE`, `EMAIL`, `ADDRESS`, `LOGIN`, `PASSWORD`, `PHOTO`, `CREATION_DATE`, `UPDATE_DATE`) VALUES
-(1, '+1234567890', 'john.doe@gmail.com', '123 Main Street, Cityville', NULL, '$2a$12$HyBk2Oz3Tvsm0EeluWo4y.RhP2Z/iGsJCtduBiv2xbZuoI4XIg7wm', 'https://example.com/john-doe-photo.jpg', '2024-01-29 13:39:46', NULL),
-(2, '+1234567890', 'mal.bobbo@example.com', '123 Main Street, Cityville', NULL, '$2a$10$N/4GIc9tbq6WV1pVCHXZ/OxpfG6mFqekbp1hA4YcNbKUZL0kotemK', 'https://example.com/john-doe-photo.jpg', '2024-01-29 14:56:01', NULL),
-(4, '+237697880799', 'oumar.farouq@toplearn.net', NULL, NULL, NULL, '', '2024-01-29 16:07:34', NULL),
-(156, 'string', 'string', 'string', 'string', 'string', 'string', '2024-02-22 11:34:00', '2024-02-22 11:33:58'),
-(157, 'string', 'stringa', 'string', NULL, '$2a$10$RIHBWol49VvUWDuOcWAOFuMXuDDT/kI0Vcm7rIOaS.4qyekPDakxe', 'string', '2024-02-22 13:19:01', NULL),
-(158, '+237697880799', 'sirius.wl@mail.com', 'Ndere', NULL, NULL, NULL, '2024-02-28 14:38:22', NULL),
-(159, '+237697880799', 'aliougga@gmail.com', 'Ndere', NULL, NULL, NULL, '2024-02-28 14:39:57', NULL),
-(160, '+237697880799', 'oumar.farouq@ztoplearn.net', '', NULL, NULL, NULL, '2024-02-28 14:54:08', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -494,14 +411,6 @@ CREATE TABLE IF NOT EXISTS `compose` (
   PRIMARY KEY (`ID`,`ID_AKDEMIA_SUB_THEME`),
   KEY `COMPOSE_AKDEMIA_SUB_THEME0_FK` (`ID_AKDEMIA_SUB_THEME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `compose`
---
-
-INSERT INTO `compose` (`ID`, `ID_AKDEMIA_SUB_THEME`) VALUES
-(1, 1),
-(1, 2);
 
 -- --------------------------------------------------------
 
