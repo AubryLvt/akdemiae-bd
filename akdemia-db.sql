@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 07 mars 2024 à 09:49
+-- Généré le : ven. 08 mars 2024 à 16:28
 -- Version du serveur : 10.3.38-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 8.2.8
 
@@ -256,8 +256,7 @@ CREATE TABLE `akdemia_privilege` (
 --
 
 INSERT INTO `akdemia_privilege` (`ID`, `CREATION_DATE`, `UPDATE_DATE`, `ID_AKDEMIA_USER`, `ID_AKDEMIA_ROLE`) VALUES
-(1, '2024-01-29 13:39:46', NULL, 1, 1),
-(2, '2024-01-29 14:56:02', NULL, 2, 1);
+(1, '2024-01-29 13:39:46', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
